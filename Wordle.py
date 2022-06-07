@@ -1,6 +1,7 @@
 import random
 guessed_correctly = False
 
+
 #function for word_list
 def word_list():
     word_list = []
@@ -10,8 +11,10 @@ def word_list():
     print(word_list)
     return word_list
 
+
 # word_list = word_list()
 #function for random_word
+
 def random_word(words):
     random_word = random.choice(words)
     return random_word
@@ -64,7 +67,7 @@ def play():
         word_list.append(word.strip())
     exact_word = random_word(word_list)
     print(exact_word)
-    while guess_count < 5 and  not guessed_correctly:
+    while guess_count < 6 and  not guessed_correctly:
         if(check_guess(next_guess(word_list), exact_word)):
            guessed_correctly = True
            break
