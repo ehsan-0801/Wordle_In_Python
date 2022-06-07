@@ -1,6 +1,7 @@
 import random
 guessed_correctly = False
 
+#function for word_list
 def word_list():
     word_list = []
     word_file = open('5_letter_word.txt')
@@ -10,15 +11,16 @@ def word_list():
     return word_list
 
 # word_list = word_list()
-
+#function for random_word
 def random_word(words):
     random_word = random.choice(words)
     return random_word
 
-
+#function for is_real_word
 def is_real_word(Guessword, word_list):
     return Guessword in word_list
 
+#function for check_guess
 def check_guess(guessed_word, exact_word):
     global guessed_correctly
     position = 0
@@ -28,12 +30,7 @@ def check_guess(guessed_word, exact_word):
         
         # is in the right position X
         # is in the word (n2<=n1) O
-        # if not found in the word or repeated (n2>n1) _        
-        
-        
-        # TAAAN
-        # AARAT
-        # OX_XO
+        # if not found in the word or repeated (n2>n1) _     
         
         if letter == exact_word[position]:
             clue += "X"
@@ -48,7 +45,7 @@ def check_guess(guessed_word, exact_word):
     print(clue)
     return clue == "XXXXX"
 
-
+#function for next_guess
 def next_guess(word_list):
     guess = input("Please enter a guess:").lower()
     if is_real_word(guess, word_list):
@@ -57,6 +54,7 @@ def next_guess(word_list):
         print("That's not a real word!")
         return next_guess(word_list)
 
+#function for play
 def play():
     global guessed_correctly
     word_list = []
