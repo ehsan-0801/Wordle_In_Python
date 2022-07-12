@@ -8,7 +8,7 @@ def word_list():
     word_file = open('5_letter_word.txt')
     for word in word_file:
         word_list.append(word.strip())
-    print(word_list)
+    #print(word_list)
     return word_list
 
 
@@ -46,7 +46,7 @@ def check_guess(guessed_word, exact_word):
         
         position+=1
     print(clue)
-    return clue == "XXXXX"
+    return clue
 
 #function for next_guess
 def next_guess(word_list):
@@ -60,15 +60,18 @@ def next_guess(word_list):
 #function for play
 def play():
     global guessed_correctly
-    word_list = []
+    # word_list = []
     guess_count = 0
-    word_file = open('5_letter_word.txt')
-    for word in word_file:
-        word_list.append(word.strip())
-    exact_word = random_word(word_list)
-    print(exact_word)
+    
+    # word_file = open('5_letter_word.txt')
+    # for word in word_file:
+    #     word_list.append(word.strip())
+    Words = word_list()
+    # print(Words)
+    exact_word = random_word(Words)
+    # print(exact_word)
     while guess_count < 6 and  not guessed_correctly:
-        if(check_guess(next_guess(word_list), exact_word)):
+        if(check_guess(next_guess(Words), exact_word) == "XXXXX"):
            guessed_correctly = True
            break
         guess_count+=1
